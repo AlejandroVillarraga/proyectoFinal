@@ -18,7 +18,7 @@ import javax.faces.bean.SessionScoped;
  *
  * @author 2101751
  */
-@ManagedBean 
+@ManagedBean (name = "beanMonitores")
 @SessionScoped
 public class backingBean {
     
@@ -33,6 +33,8 @@ public class backingBean {
     
     
     public void registroBitacora() throws ServiceFacadeException{
+        
+        
         Student stu = ServicesFacade.getInstance("applicationconfig.properties").consultarEstudiante(idMonitor);
         ServicesFacade.getInstance("applicationconfig.properties").ActualizarEstadoDeTarea(idTask, estado);
         Task tarea = ServicesFacade.getInstance("applicationconfig.properties").consultarTarea(idTask);
@@ -100,6 +102,7 @@ public class backingBean {
     }
     
     public Bitacora getBitacoraBean() throws ServiceFacadeException {
+        System.out.print("jasdasd");
         registroBitacora();
         return bitacoraBean;
     }
